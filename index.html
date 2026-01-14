@@ -4,10 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="SMS Travels - Fast, reliable, and affordable taxi service in Puttaparthi, Andhra Pradesh. Book local rides, airport transfers, outstation trips, and tour packages 24/7.">
-  <meta name="keywords" content="taxi service Puttaparthi, SMS Travels, airport transfer, outstation taxi, Puttaparthi cab booking">
-  <meta name="author" content="SMS Travels">
-  <title>SMS Travels - Taxi Service in Puttaparthi</title>
+  <meta name="description" content="Shajahan Taxi Service - Fast, reliable, and affordable taxi service in Puttaparthi, Andhra Pradesh. Book local rides, airport transfers, outstation trips, and tour packages 24/7.">
+  <meta name="keywords" content="taxi service Puttaparthi, Shajahan Taxi Service, airport transfer, outstation taxi, Puttaparthi cab booking">
+  <meta name="author" content="Shajahan Taxi Service">
+  <title>Shajahan Taxi Service - Taxi in Puttaparthi</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <style>
@@ -48,7 +48,7 @@
   <!-- Header -->
   <header class="bg-gradient-to-r from-blue-700 to-blue-500 text-white sticky top-0 z-20 shadow-lg">
     <nav class="container mx-auto flex items-center justify-between py-4 px-6">
-      <div class="text-3xl font-extrabold tracking-tight">SMS Travels</div>
+      <div class="text-3xl font-extrabold tracking-tight">Shajahan Taxi Service</div>
       <div class="hidden md:flex space-x-8 items-center">
         <a href="#home" class="text-lg hover:text-yellow-300 transition-colors duration-300">Home</a>
         <a href="#services" class="text-lg hover:text-yellow-300 transition-colors duration-300">Services</a>
@@ -72,8 +72,8 @@
   <!-- Hero Section -->
   <section id="home" class="bg-gradient-to-b from-blue-600 to-blue-400 text-white py-24 fade-in">
     <div class="container mx-auto text-center px-6">
-      <h1 class="text-5xl md:text-6xl font-extrabold mb-6 leading-tight">Welcome to SMS Travels</h1>
-      <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">Fast, Reliable, Always On Time – Your Premier Taxi Service in Puttaparthi</p>
+      <h1 class="text-5xl md:text-6xl font-extrabold mb-6 leading-tight">Welcome to Shajahan Taxi Service</h1>
+      <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">Fast, Reliable, Always On Time – Your Trusted Taxi in Puttaparthi</p>
       <a href="#book" class="bg-yellow-400 text-blue-800 px-8 py-4 rounded-full text-lg font-semibold hover:bg-yellow-300 transition-all duration-300 shadow-md">Book Your Ride</a>
     </div>
   </section>
@@ -110,7 +110,7 @@
   <!-- About Section -->
   <section id="about" class="bg-gray-100 py-20 fade-in">
     <div class="container mx-auto px-6">
-      <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">About SMS Travels</h2>
+      <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">About Shajahan Taxi Service</h2>
       <div class="flex flex-col md:flex-row items-center gap-12">
         <div class="md:w-1/2">
           <img src="https://th.bing.com/th/id/R.55432226343e2127b1a216e0f2e9f5c0?rik=L1XfklsmySJEQA&riu=http%3a%2f%2fimages2.cardekho.com%2fimages%2fcarNewsimages%2fuserimages%2f13407%2fToyota.jpg&ehk=j8ILNrI%2fyudgRtsqNPhkPek7%2b6HMDpBhSyhVUEZFWCU%3d&risl=&pid=ImgRaw&r=0" 
@@ -118,7 +118,7 @@
         </div>
         <div class="md:w-1/2">
           <p class="text-lg text-gray-700 mb-6 leading-relaxed">
-            SMS Travels is your trusted taxi service in Puttaparthi, Andhra Pradesh, offering 24/7 transportation solutions.
+            Shajahan Taxi Service is your trusted taxi service in Puttaparthi, Andhra Pradesh, offering 24/7 transportation solutions.
           </p>
           <p class="text-lg text-gray-700 leading-relaxed">
             We specialize in local rides, airport transfers, outstation trips, and tailored tour packages. 
@@ -156,7 +156,7 @@
           </p>
         </div>
 
-        <!-- Booking Form – now opens WhatsApp -->
+        <!-- Booking Form – opens WhatsApp -->
         <div id="book">
           <h3 class="text-2xl font-semibold mb-6 text-gray-800">Book a Ride</h3>
           <form id="booking-form" class="space-y-6">
@@ -212,7 +212,7 @@
   <!-- Footer -->
   <footer class="bg-gradient-to-r from-blue-700 to-blue-500 text-white py-8">
     <div class="container mx-auto text-center px-6">
-      <p class="text-lg">© 2025 SMS Travels. All rights reserved.</p>
+      <p class="text-lg">© 2026 Shajahan Taxi Service. All rights reserved.</p>
       <p class="mt-2 text-lg">
         Puttaparthi, Andhra Pradesh | 
         <a href="tel:06300700382" class="hover:text-yellow-300">063007 00382</a>
@@ -288,14 +288,13 @@ Additional details: ${message || 'None'}`;
       formMessage.classList.remove('text-red-600', 'hidden');
       formMessage.classList.add('text-green-600');
 
-      // Optional: reset form after 3 seconds
       setTimeout(() => {
         form.reset();
         formMessage.classList.add('hidden');
       }, 5000);
     });
 
-    // Autocomplete (Nominatim) – still included so user can easily find places
+    // Autocomplete (Nominatim)
     const fromInput = document.getElementById('from');
     const toInput   = document.getElementById('to');
     const fromSuggestions = document.getElementById('from-suggestions');

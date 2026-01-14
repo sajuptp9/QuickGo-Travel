@@ -1,150 +1,343 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="QuickGo Travel - Fast, reliable, and affordable taxi service in Puttaparthi, Andhra Pradesh. Book local rides, airport transfers, outstation trips, and tour packages 24/7.">
-  <meta name="keywords" content="taxi service Puttaparthi, QuickGo Travel, airport transfer, outstation taxi, Puttaparthi cab booking">
-  <meta name="author" content="QuickGo Travel">
+  <meta name="description" content="SMS Travels - Fast, reliable, and affordable taxi service in Puttaparthi, Andhra Pradesh. Book local rides, airport transfers, outstation trips, and tour packages 24/7.">
+  <meta name="keywords" content="taxi service Puttaparthi, SMS Travels, airport transfer, outstation taxi, Puttaparthi cab booking">
+  <meta name="author" content="SMS Travels">
   <title>SMS Travels - Taxi Service in Puttaparthi</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .autocomplete-suggestions {
+      position: absolute;
+      z-index: 30;
+      background: white;
+      border: 1px solid #d1d5db;
+      border-radius: 0.5rem;
+      max-height: 200px;
+      overflow-y: auto;
+      width: 100%;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .autocomplete-suggestions div {
+      padding: 0.75rem;
+      cursor: pointer;
+    }
+    .autocomplete-suggestions div:hover {
+      background-color: #f3f4f6;
+    }
+  </style>
 </head>
-<body class="bg-gray-100 font-sans">
+<body class="bg-gray-50 font-sans antialiased">
+
   <!-- Header -->
-  <header class="bg-blue-600 text-white sticky top-0 z-10">
+  <header class="bg-gradient-to-r from-blue-700 to-blue-500 text-white sticky top-0 z-20 shadow-lg">
     <nav class="container mx-auto flex items-center justify-between py-4 px-6">
-      <div class="text-2xl font-bold">SMS Travels</div>
-      <div class="space-x-6">
-        <a href="#home" class="hover:text-blue-200">Home</a>
-        <a href="#services" class="hover:text-blue-200">Services</a>
-        <a href="#about" class="hover:text-blue-200">About</a>
-        <a href="#contact" class="hover:text-blue-200">Contact</a>
-        <a href="#book" class="bg-yellow-400 text-blue-600 px-4 py-2 rounded hover:bg-yellow-300">Book Now</a>
+      <div class="text-3xl font-extrabold tracking-tight">SMS Travels</div>
+      <div class="hidden md:flex space-x-8 items-center">
+        <a href="#home" class="text-lg hover:text-yellow-300 transition-colors duration-300">Home</a>
+        <a href="#services" class="text-lg hover:text-yellow-300 transition-colors duration-300">Services</a>
+        <a href="#about" class="text-lg hover:text-yellow-300 transition-colors duration-300">About</a>
+        <a href="#contact" class="text-lg hover:text-yellow-300 transition-colors duration-300">Contact</a>
+        <a href="#book" class="bg-yellow-400 text-blue-800 px-6 py-2 rounded-full font-semibold hover:bg-yellow-300 transition-colors duration-300">Book Now</a>
       </div>
+      <button id="menu-toggle" class="md:hidden text-2xl focus:outline-none">
+        <i class="fas fa-bars"></i>
+      </button>
     </nav>
+    <div id="mobile-menu" class="hidden md:hidden bg-blue-600 text-white px-6 py-4">
+      <a href="#home" class="block py-2 text-lg hover:text-yellow-300 transition-colors duration-300">Home</a>
+      <a href="#services" class="block py-2 text-lg hover:text-yellow-300 transition-colors duration-300">Services</a>
+      <a href="#about" class="block py-2 text-lg hover:text-yellow-300 transition-colors duration-300">About</a>
+      <a href="#contact" class="block py-2 text-lg hover:text-yellow-300 transition-colors duration-300">Contact</a>
+      <a href="#book" class="block py-2 text-lg bg-yellow-400 text-blue-800 px-4 rounded-full font-semibold hover:bg-yellow-300 transition-colors duration-300">Book Now</a>
+    </div>
   </header>
 
   <!-- Hero Section -->
-  <section id="home" class="bg-blue-500 text-white py-20">
+  <section id="home" class="bg-gradient-to-b from-blue-600 to-blue-400 text-white py-24 fade-in">
     <div class="container mx-auto text-center px-6">
-      <h1 class="text-4xl md:text-5xl font-bold mb-4">SMS Travels</h1>
-      <p class="text-xl mb-6">Fast, Reliable, Always On Time – Your Trusted Taxi Service in Puttaparthi</p>
-      <a href="#book" class="bg-yellow-400 text-blue-600 px-6 py-3 rounded-full text-lg font-semibold hover:bg-yellow-300">Book a Ride</a>
+      <h1 class="text-5xl md:text-6xl font-extrabold mb-6 leading-tight">Welcome to SMS Travels</h1>
+      <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">Fast, Reliable, Always On Time – Your Premier Taxi Service in Puttaparthi</p>
+      <a href="#book" class="bg-yellow-400 text-blue-800 px-8 py-4 rounded-full text-lg font-semibold hover:bg-yellow-300 transition-all duration-300 shadow-md">Book Your Ride</a>
     </div>
   </section>
 
   <!-- Services Section -->
-  <section id="services" class="py-16">
+  <section id="services" class="py-20 bg-white fade-in">
     <div class="container mx-auto px-6">
-      <h2 class="text-3xl font-bold text-center mb-12">Our Services</h2>
+      <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">Our Services</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        <div class="bg-white p-6 rounded-lg shadow-md text-center">
-          <i class="fas fa-taxi text-4xl text-blue-600 mb-4"></i>
-          <h3 class="text-xl font-semibold mb-2">Local Rides</h3>
-          <p>Explore Puttaparthi with our prompt and affordable local taxi services.</p>
+        <div class="bg-gray-50 p-8 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow duration-300">
+          <i class="fas fa-taxi text-5xl text-blue-600 mb-6"></i>
+          <h3 class="text-2xl font-semibold mb-4 text-gray-800">Local Rides</h3>
+          <p class="text-gray-600">Explore Puttaparthi with our prompt and affordable local taxi services.</p>
         </div>
-        <div class="bg-white p-6 rounded-lg shadow-md text-center">
-          <i class="fas fa-plane text-4xl text-blue-600 mb-4"></i>
-          <h3 class="text-xl font-semibold mb-2">Airport Transfers</h3>
-          <p>Hassle-free transfers to and from airports, ensuring you never miss a flight.</p>
+        <div class="bg-gray-50 p-8 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow duration-300">
+          <i class="fas fa-plane text-5xl text-blue-600 mb-6"></i>
+          <h3 class="text-2xl font-semibold mb-4 text-gray-800">Airport Transfers</h3>
+          <p class="text-gray-600">Hassle-free transfers to and from airports.</p>
         </div>
-        <div class="bg-white p-6 rounded-lg shadow-md text-center">
-          <i class="fas fa-road text-4xl text-blue-600 mb-4"></i>
-          <h3 class="text-xl font-semibold mb-2">Outstation Trips</h3>
-          <p>Travel comfortably to nearby cities or destinations with our reliable cabs.</p>
+        <div class="bg-gray-50 p-8 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow duration-300">
+          <i class="fas fa-road text-5xl text-blue-600 mb-6"></i>
+          <h3 class="text-2xl font-semibold mb-4 text-gray-800">Outstation Trips</h3>
+          <p class="text-gray-600">Comfortable travel to nearby cities or destinations.</p>
         </div>
-        <div class="bg-white p-6 rounded-lg shadow-md text-center">
-          <i class="fas fa-map text-4xl text-blue-600 mb-4"></i>
-          <h3 class="text-xl font-semibold mb-2">Tour Packages</h3>
-          <p>Customizable tours for pilgrims, tourists, and spiritual seekers in Puttaparthi.</p>
+        <div class="bg-gray-50 p-8 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow duration-300">
+          <i class="fas fa-map text-5xl text-blue-600 mb-6"></i>
+          <h3 class="text-2xl font-semibold mb-4 text-gray-800">Tour Packages</h3>
+          <p class="text-gray-600">Custom tours for pilgrims and tourists in Puttaparthi.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- About Section -->
-  <section id="about" class="bg-gray-200 py-16">
+  <section id="about" class="bg-gray-100 py-20 fade-in">
     <div class="container mx-auto px-6">
-      <h2 class="text-3xl font-bold text-center mb-12">About SMS Travels</h2>
-      <div class="flex flex-col md:flex-row items-center">
-        <div class="md:w-1/2 mb-8 md:mb-0">
-          <img src="https://th.bing.com/th/id/R.55432226343e2127b1a216e0f2e9f5c0?rik=L1XfklsmySJEQA&riu=http%3a%2f%2fimages2.cardekho.com%2fimages%2fcarNewsimages%2fuserimages%2f13407%2fToyota.jpg&ehk=j8ILNrI%2fyudgRtsqNPhkPek7%2b6HMDpBhSyhVUEZFWCU%3d&risl=&pid=ImgRaw&r=0" alt="Taxi in Puttaparthi" class="rounded-lg shadow-md">
+      <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">About SMS Travels</h2>
+      <div class="flex flex-col md:flex-row items-center gap-12">
+        <div class="md:w-1/2">
+          <img src="https://th.bing.com/th/id/R.55432226343e2127b1a216e0f2e9f5c0?rik=L1XfklsmySJEQA&riu=http%3a%2f%2fimages2.cardekho.com%2fimages%2fcarNewsimages%2fuserimages%2f13407%2fToyota.jpg&ehk=j8ILNrI%2fyudgRtsqNPhkPek7%2b6HMDpBhSyhVUEZFWCU%3d&risl=&pid=ImgRaw&r=0" 
+               alt="Taxi in Puttaparthi" class="rounded-xl shadow-lg w-full object-cover">
         </div>
-        <div class="md:w-1/2 md:pl-8">
-          <p class="text-lg mb-4">SMS Travels is your trusted taxi service in Puttaparthi, Andhra Pradesh, offering 24/7 transportation solutions. We specialize in local rides, airport transfers, outstation trips, and tailored tour packages for pilgrims, tourists, and business travelers.</p>
-          <p class="text-lg">With a focus on punctuality, clean vehicles, and courteous drivers who know the region well, we ensure a safe and stress-free journey every time. Book with SMS Travels for a seamless travel experience!</p>
+        <div class="md:w-1/2">
+          <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+            SMS Travels is your trusted taxi service in Puttaparthi, Andhra Pradesh, offering 24/7 transportation solutions.
+          </p>
+          <p class="text-lg text-gray-700 leading-relaxed">
+            We specialize in local rides, airport transfers, outstation trips, and tailored tour packages. 
+            With punctual, clean vehicles and courteous drivers who know the region well — book with us for a stress-free journey!
+          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="py-16">
+  <!-- Contact & Booking Section -->
+  <section id="contact" class="py-20 bg-white fade-in">
     <div class="container mx-auto px-6">
-      <h2 class="text-3xl font-bold text-center mb-12">Get in Touch</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">Get in Touch</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+        
+        <!-- Contact Info -->
         <div>
-          <h3 class="text-2xl font-semibold mb-4">Contact Information</h3>
-          <p class="text-lg mb-2"><i class="fas fa-phone-alt mr-2"></i> Phone: 063007 00382, 9959948151</p>
-          <p class="text-lg mb-2"><i class="fab fa-whatsapp mr-2"></i> WhatsApp: <a href="https://wa.me/916300700382">06300700382</a></p>
-          <p class="text-lg mb-2"><i class="fas fa-map-marker-alt mr-2"></i> Location: Near Bus Stand, Puttaparthi, Andhra Pradesh 515134, India</p>
-          <p class="text-lg"><i class="fas fa-clock mr-2"></i> Open 24/7, Monday to Sunday</p>
+          <h3 class="text-2xl font-semibold mb-6 text-gray-800">Contact Information</h3>
+          <p class="text-lg text-gray-700 mb-4">
+            <i class="fas fa-phone-alt mr-3 text-blue-600"></i> 
+            Phone: <a href="tel:06300700382" class="hover:text-blue-600">063007 00382</a>, 
+            <a href="tel:9959948151" class="hover:text-blue-600">9959948151</a>
+          </p>
+          <p class="text-lg text-gray-700 mb-4">
+            <i class="fab fa-whatsapp mr-3 text-blue-600"></i> 
+            WhatsApp: <a href="https://wa.me/916300700382" class="hover:text-blue-600">06300700382</a>
+          </p>
+          <p class="text-lg text-gray-700 mb-4">
+            <i class="fas fa-map-marker-alt mr-3 text-blue-600"></i> 
+            Near Bus Stand, Puttaparthi, Andhra Pradesh 515134, India
+          </p>
+          <p class="text-lg text-gray-700">
+            <i class="fas fa-clock mr-3 text-blue-600"></i> Open 24/7
+          </p>
         </div>
+
+        <!-- Booking Form – now opens WhatsApp -->
         <div id="book">
-          <h3 class="text-2xl font-semibold mb-4">Book a Ride</h3>
-          <form action="https://formspree.io/f/mrbqalye" method="POST">
-            <div class="mb-4">
-              <label for="name" class="block text-lg mb-2">Name</label>
-              <input type="text" id="name" name="name" class="w-full p-3 border rounded-lg" required>
+          <h3 class="text-2xl font-semibold mb-6 text-gray-800">Book a Ride</h3>
+          <form id="booking-form" class="space-y-6">
+            <div class="relative">
+              <label for="from" class="block text-lg font-medium text-gray-700 mb-2">From</label>
+              <input type="text" id="from" required class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+              <div id="from-suggestions" class="autocomplete-suggestions hidden"></div>
             </div>
-            <div class="mb-4">
-              <label for="phone" class="block text-lg mb-2">Phone Number</label>
-              <input type="tel" id="phone" name="phone" class="w-full p-3 border rounded-lg" required>
+
+            <div class="relative">
+              <label for="to" class="block text-lg font-medium text-gray-700 mb-2">To</label>
+              <input type="text" id="to" required class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+              <div id="to-suggestions" class="autocomplete-suggestions hidden"></div>
             </div>
-            <div class="mb-4">
-              <label for="service" class="block text-lg mb-2">Service Type</label>
-              <select id="service" name="service" class="w-full p-3 border rounded-lg" required>
+
+            <div>
+              <label for="name" class="block text-lg font-medium text-gray-700 mb-2">Name</label>
+              <input type="text" id="name" required class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+            </div>
+
+            <div>
+              <label for="phone" class="block text-lg font-medium text-gray-700 mb-2">Phone Number</label>
+              <input type="tel" id="phone" required class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+            </div>
+
+            <div>
+              <label for="service" class="block text-lg font-medium text-gray-700 mb-2">Service Type</label>
+              <select id="service" required class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                <option value="">Select service</option>
                 <option value="local">Local Ride</option>
                 <option value="airport">Airport Transfer</option>
                 <option value="outstation">Outstation Trip</option>
                 <option value="tour">Tour Package</option>
               </select>
             </div>
-            <div class="mb-4">
-              <label for="message" class="block text-lg mb-2">Additional Details</label>
-              <textarea id="message" name="message" class="w-full p-3 border rounded-lg" rows="4"></textarea>
+
+            <div>
+              <label for="message" class="block text-lg font-medium text-gray-700 mb-2">Additional Details</label>
+              <textarea id="message" rows="4" class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"></textarea>
             </div>
-            <input type="hidden" name="_subject" value="New Booking Inquiry from QuickGo Travel">
-            <input type="hidden" name="_next" value="#contact">
-            <button type="submit" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700">Send Inquiry</button>
+
+            <button type="submit" class="w-full bg-green-600 text-white px-6 py-4 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-300 flex items-center justify-center gap-2">
+              <i class="fab fa-whatsapp text-xl"></i> Send to WhatsApp
+            </button>
           </form>
+
+          <p id="form-message" class="text-green-600 mt-4 hidden font-medium"></p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-blue-600 text-white py-6">
+  <footer class="bg-gradient-to-r from-blue-700 to-blue-500 text-white py-8">
     <div class="container mx-auto text-center px-6">
-      <p>© 2025 SMS Travels. All rights reserved.</p>
-      <p class="mt-2">Puttaparthi, Andhra Pradesh | <a href="tel:06300700382" class="hover:text-yellow-400">063007 00382</a></p>
+      <p class="text-lg">© 2025 SMS Travels. All rights reserved.</p>
+      <p class="mt-2 text-lg">
+        Puttaparthi, Andhra Pradesh | 
+        <a href="tel:06300700382" class="hover:text-yellow-300">063007 00382</a>
+      </p>
+      <div class="mt-4 flex justify-center space-x-6 text-2xl">
+        <a href="https://wa.me/916300700382" class="hover:text-yellow-300"><i class="fab fa-whatsapp"></i></a>
+        <a href="#contact" class="hover:text-yellow-300"><i class="fas fa-envelope"></i></a>
+      </div>
     </div>
   </footer>
 
-  <!-- JavaScript for form handling (basic validation) -->
+  <!-- Sticky WhatsApp Button (Mobile) -->
+  <a href="#book" class="fixed bottom-6 right-6 bg-green-600 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-green-700 transition-all duration-300 shadow-lg md:hidden z-30 flex items-center gap-2">
+    <i class="fab fa-whatsapp"></i> Book Now
+  </a>
+
+  <!-- JavaScript -->
   <script>
-    const form = document.querySelector('form');
-    form.addEventListener('submit', (e) => {
-      const name = document.getElementById('name').value;
-      const phone = document.getElementById('phone').value;
-      if (!name || !phone) {
-        e.preventDefault();
-        alert('Please fill out all required fields.');
+    // Mobile menu
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      const icon = menuToggle.querySelector('i');
+      icon.classList.toggle('fa-bars');
+      icon.classList.toggle('fa-times');
+    });
+
+    // Fade-in sections
+    const fadeInElements = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.2 });
+    fadeInElements.forEach(el => observer.observe(el));
+
+    // WhatsApp form handler
+    const form = document.getElementById('booking-form');
+    const formMessage = document.getElementById('form-message');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const from    = document.getElementById('from').value.trim();
+      const to      = document.getElementById('to').value.trim();
+      const name    = document.getElementById('name').value.trim();
+      const phone   = document.getElementById('phone').value.trim();
+      const service = document.getElementById('service').value;
+      const message = document.getElementById('message').value.trim();
+
+      if (!name || !phone || !from || !to || !service) {
+        formMessage.textContent = 'Please fill all required fields.';
+        formMessage.classList.remove('text-green-600', 'hidden');
+        formMessage.classList.add('text-red-600');
+        return;
       }
+
+      const text = 
+`New booking enquiry from website
+
+Name: ${name}
+Phone: ${phone}
+From: ${from}
+To: ${to}
+Service: ${service.charAt(0).toUpperCase() + service.slice(1)} Ride
+Additional details: ${message || 'None'}`;
+
+      const waUrl = `https://wa.me/916300700382?text=${encodeURIComponent(text)}`;
+      window.open(waUrl, '_blank');
+
+      formMessage.textContent = "Opening WhatsApp... Send the message to complete your enquiry!";
+      formMessage.classList.remove('text-red-600', 'hidden');
+      formMessage.classList.add('text-green-600');
+
+      // Optional: reset form after 3 seconds
+      setTimeout(() => {
+        form.reset();
+        formMessage.classList.add('hidden');
+      }, 5000);
+    });
+
+    // Autocomplete (Nominatim) – still included so user can easily find places
+    const fromInput = document.getElementById('from');
+    const toInput   = document.getElementById('to');
+    const fromSuggestions = document.getElementById('from-suggestions');
+    const toSuggestions   = document.getElementById('to-suggestions');
+
+    async function fetchSuggestions(query, container) {
+      if (query.length < 3) {
+        container.classList.add('hidden');
+        container.innerHTML = '';
+        return;
+      }
+      try {
+        const res = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}&limit=5`);
+        const data = await res.json();
+        container.innerHTML = '';
+        if (data.length === 0) {
+          container.classList.add('hidden');
+          return;
+        }
+        data.forEach(item => {
+          const div = document.createElement('div');
+          div.textContent = item.display_name;
+          div.addEventListener('click', () => {
+            container.previousElementSibling.value = item.display_name;
+            container.classList.add('hidden');
+          });
+          container.appendChild(div);
+        });
+        container.classList.remove('hidden');
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    fromInput.addEventListener('input', () => fetchSuggestions(fromInput.value, fromSuggestions));
+    toInput.addEventListener('input',   () => fetchSuggestions(toInput.value,   toSuggestions));
+
+    document.addEventListener('click', e => {
+      if (!fromInput.contains(e.target) && !fromSuggestions.contains(e.target)) fromSuggestions.classList.add('hidden');
+      if (!toInput.contains(e.target)   && !toSuggestions.contains(e.target))   toSuggestions.classList.add('hidden');
     });
   </script>
 </body>
 </html>
-
-
+```
